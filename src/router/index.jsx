@@ -1,13 +1,12 @@
 import { Outlet, createBrowserRouter } from "react-router-dom";
 
-import Home from '@/pages/Home'
-// import Wrapper from "@/shared/components/Wrapper";
+import Home from "@/pages/Home";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <RouteLayout />,
+    element: <Outlet />,
     children: [
       {
         index: true,
@@ -16,11 +15,3 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
-
-export default function RouteLayout() {
-  return (
-    // <Wrapper>
-    <Outlet />
-    // </Wrapper>
-  );
-}

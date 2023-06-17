@@ -16,8 +16,5 @@ export default defineConfig({
   build: {
     outDir: resolve(dirname(fileURLToPath(import.meta.url)), '..', 'html'),
     emptyOutDir: true,
-    rollupOptions: {
-      // external: [...ComponentsService.getComponents()],
-    },
   },
 })

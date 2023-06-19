@@ -1,17 +1,27 @@
-import { Outlet, createBrowserRouter } from "react-router-dom";
+import { Outlet, HashRouter, Routes, Route } from "react-router-dom";
+
+import Responsive from "@/shared/components/Responsive";
 
 import Home from "@/pages/Home";
+import Note from "@/pages/Note";
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Outlet />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-    ],
-  },
-]);
+function Layout() {
+  return (
+    <Responsive>
+      <Outlet />
+    </Responsive>
+  );
+}
+
+export default function Router() {
+  return (
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="note" element={<Note />} />
+        </Route>
+      </Routes>
+    </HashRouter>
+  );
+}
